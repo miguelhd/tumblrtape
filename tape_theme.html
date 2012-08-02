@@ -3,7 +3,7 @@
     <title>{Title}</title>
 
     <meta name="viewport" content="width=775, maximum-scale=1.0" />
-    <meta name="image:Background" content="http://www.magictransistor.com/preview/images/bg_medium.jpg"/>
+    <meta name="image:Background" content="http://static.tumblr.com/2jzwwaz/SHPm84dym/cables_bg.jpg"/>
     <meta name="color:Accent" content="#ffef3e"/>
 
     <link rel="shortcut icon" href="{Favicon}">
@@ -83,21 +83,21 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 40;
+        margin-bottom: 40px;
+        padding-bottom: 8px;
         background: #000;
         width: 652px;
-        margin: 0 auto;
       }
-
+      
       .video {
-          width: 652px;
+        width: 652px;
       }
       .post_details {
         display: table;
         font-size: 14px;
         margin-left: auto; 
         margin-right: auto;
-        padding: 3px 8px 3px 8px;
+        padding: 6px 8px 6px 8px;
         width: 636px;
         background: #000;
         color: {color:Accent};
@@ -113,7 +113,7 @@
       
       .photo img {
         display: block;
-        max-width: 100%; 
+        max-width: 640px; 
         height: auto;
         margin: 0 auto;
       }
@@ -154,12 +154,12 @@
 
           <div class="float_left">
             {block:Date}
-              {ShortMonth} {DayOfMonth} {Year}
+              {Month} {DayOfMonth}
             {/block:Date}
           </div>
           
           <div class="float_right">
-            {PostAuthorName}
+            by {PostAuthorName}
           </div>
 
         </div>
@@ -176,11 +176,13 @@
 
         {block:Photo}
             <li class="post photo">
+              <div class="mediapost">
                 <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
 
                 {block:Caption}
                     <div class="caption">{Caption}</div>
                 {/block:Caption}
+              </div>
             </li>
         {/block:Photo}
 
@@ -297,7 +299,7 @@
       })();
     </script>
   </body>
-</html>rames[x].src && iframes[x].src.indexOf('youtube.com') > -1){
+</html>{
             if(newVideoHeight == 'auto'){
               newVideoHeight = ( newVideoWidth * 9 ) / 16;
             }
