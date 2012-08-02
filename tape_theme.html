@@ -35,6 +35,7 @@
         line-height: 18px;
         background-repeat:repeat-xy; 
         background-attachment: fixed;
+        background-color: #000;
         background-image:url('{image:Background}');
       }
 
@@ -108,7 +109,7 @@
 
       .post_details {
         display: table;
-        font-size: 14px;
+        font-size: 15px;
         margin-left: auto; 
         margin-right: auto;
         padding: 6px 8px 6px 8px;
@@ -137,6 +138,22 @@
         margin: 0;
         margin-left: auto;
         margin-right: auto;
+      }
+      
+      .pagination {
+        margin-top: -25px;
+        padding: 10px 12px 10px 15px;
+        width: 744px;
+        min-height: 20px;
+        font-size: 26px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        background: #000;
+        cursor: default;
+        color: {color:Accent};
       }
 
     {CustomCSS}
@@ -263,15 +280,15 @@
       </ul>
 
       <p id="footer">
-          <div class="post_details">
+          <div class="pagination">
             
-            <div class="post_date">
+            <div class="float_left">
               {block:PreviousPage}
-                <a href="{PreviousPage}">&#171; Previous</a>
+                <a href="{PreviousPage}">&#171; Prev</a>
               {/block:PreviousPage}
             </div>
 
-          <div class="post_author">
+          <div class="float_right">
             {block:NextPage}
               <a href="{NextPage}">Next &#187;</a>
             {/block:NextPage}
@@ -290,16 +307,6 @@
                iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
               if(newVideoHeight == 'auto'){
                 newVideoHeight = ( newVideoWidth * 9 ) / 16;
-              }
-              iframes[x].width = newVideoWidth;
-              iframes[x].height = newVideoHeight
-            }
-          }
-        })();
-      </script>
-    </div>
-  </body>
-</html>;
               }
               iframes[x].width = newVideoWidth;
               iframes[x].height = newVideoHeight
