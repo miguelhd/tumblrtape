@@ -50,6 +50,10 @@
       li {
         margin-left: 0px;
       }
+      
+      .posts {
+        width: 652px;
+      }
 
       .mt {
         padding: 19px 62px 20px;
@@ -59,31 +63,44 @@
         display: block;
         text-transform:uppercase;
       }
-
-      .posts {
-        width: 652px;
-        background-color: #000;
-      }
-
-      .description {
-        display: block;
-        /*text-transform:uppercase;*/
+      
+      .menu {
+        margin: 15px 0px 15px 0px;
+        padding: 10px 12px 10px 15px;
+        width: 260px;
+        font-size: 26px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
+        background: #000;
+        cursor: default;
+        color: {color:Accent};
       }
 
+      .mediapost {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40;
+        background: #000;
+        width: 652px;
+        margin: 0 auto;
+      }
+
+      .video {
+          width: 652px;
+      }
       .post_details {
-        display: inline-block;
-        font-family: 'futura-pt-condensed';
-        font-size: 15px;
-        font-weight: bold;
-        /*text-transform: uppercase;*/
-        margin-top: 10px;
-        margin-bottom: 10px;
+        display: table;
+        font-size: 14px;
         margin-left: auto; 
-        margin-right: auto; 
+        margin-right: auto;
+        padding: 3px 8px 3px 8px;
         width: 636px;
+        background: #000;
+        color: {color:Accent};
         }
 
       .float_left {
@@ -92,10 +109,6 @@
 
       .float_right {
         float: right;
-      }
-
-      .mediapost {
-        margin: 0 0 10px 0;
       }
       
       .photo img {
@@ -124,21 +137,6 @@
         clear:both;
       }
 
-      .menu {
-        margin: 15px 0px 15px 0px;
-        padding: 10px 12px 10px 15px;
-        width: 260px;
-        font-size: 26px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        background: #000;
-        cursor: default;
-        color: {color:Accent};
-      }
-
     {CustomCSS}
     
     </style>
@@ -163,8 +161,6 @@
           <div class="float_right">
             {PostAuthorName}
           </div>
-
-          <div class="minidiv"><img src="http://static.tumblr.com/mx89uy5/6NNm68qmm/short_line.png"></div>
 
         </div>
 
@@ -262,10 +258,6 @@
           </div>
         {/block:Audio}
 
-        <div class="divider">
-          <img src="http://static.tumblr.com/mx89uy5/bZIm6254a/long_line.png" width="640" height="1" />
-        </div>
-
       {/block:Posts}
     </ul>
 
@@ -295,6 +287,17 @@
         for(x in iframes){
           if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
              iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
+            if(newVideoHeight == 'auto'){
+              newVideoHeight = ( newVideoWidth * 9 ) / 16;
+            }
+            iframes[x].width = newVideoWidth;
+            iframes[x].height = newVideoHeight
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>rames[x].src && iframes[x].src.indexOf('youtube.com') > -1){
             if(newVideoHeight == 'auto'){
               newVideoHeight = ( newVideoWidth * 9 ) / 16;
             }
