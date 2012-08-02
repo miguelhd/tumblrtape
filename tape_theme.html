@@ -103,6 +103,7 @@
       
       .video {
         width: 652px;
+        margin: 0 auto;
       }
 
       .post_details {
@@ -250,27 +251,27 @@
           {/block:Chat}
 
           {block:Video}
-            <div class="mediapost">
-              <li class="video">
+            <li class="video">
+              <div class="mediapost">
                   <div class="videoembed">{Video-500}</div>
 
                   {block:Caption}
                       <div class="caption">{Caption}</div>
                   {/block:Caption}
-              </li>
-            </div>
+              </div>
+            </li>
           {/block:Video}
 
           {block:Audio}
-            <div class="mediapost">
-              <li class="post audio">
+            <li class="post audio">
+              <div class="mediapost">
                   {AudioPlayerWhite}
 
                   {block:Caption}
                       <div class="caption">{Caption}</div>
                   {/block:Caption}
-              </li>
-            </div>
+              </div>
+            </li>
           {/block:Audio}
 
         {/block:Posts}
