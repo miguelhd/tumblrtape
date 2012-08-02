@@ -1,0 +1,308 @@
+<html>
+  <head>
+    <title>{Title}</title>
+
+    <meta name="viewport" content="width=775, maximum-scale=1.0" />
+    <meta name="image:Background" content="http://www.magictransistor.com/preview/images/bg_medium.jpg"/>
+    <meta name="color:Accent" content="#ffef3e"/>
+
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link rel="stylesheet" href="http://static.tumblr.com/mx89uy5/NM4m620wb/reset.css" type="text/css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.tumblr.com/mx89uy5/e28m621l6/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/wap0zxn.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    <style type="text/css">
+
+      html {
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        margin: 0 auto;
+        width: 775px;
+        padding: 0px 80px 0px;
+        color: #fff;
+        font-family: 'futura-pt', sans-serif;
+        font-size: 15px;
+        line-height: 18px;
+        background: #333 url('{image:Background}');
+      }
+
+      a, a:visited {
+        text-decoration: none;
+        color: #fff
+      }
+      
+      a:hover {
+        color: #999;
+      }
+
+      ul {
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 0;
+      }
+
+      li {
+        margin-left: 0px;
+      }
+
+      .mt {
+        padding: 19px 62px 20px;
+        font-size: 55px;
+        letter-spacing: 11px;
+        background: #000;
+        display: block;
+        text-transform:uppercase;
+      }
+
+      .posts {
+        width: 652px;
+        background-color: #000;
+      }
+
+      .description {
+        display: block;
+        /*text-transform:uppercase;*/
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .post_details {
+        display: inline-block;
+        font-family: 'futura-pt-condensed';
+        font-size: 15px;
+        font-weight: bold;
+        /*text-transform: uppercase;*/
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 636px;
+        }
+
+      .float_left {
+        float: left;
+      }
+
+      .float_right {
+        float: right;
+      }
+
+      .mediapost {
+        margin: 0 0 10px 0;
+      }
+      
+      .photo img {
+        display: block;
+        max-width: 100%; 
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .divider {
+        margin: 12px 0 12px 0;
+        zoom: 1;
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+      }
+      
+      .logo {
+        display: block;
+        margin: 15px 20px 15px 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .minidiv {
+        float: left;
+        clear:both;
+      }
+
+      .menu {
+        padding: 4px 10px 4px 10px;
+        font-weight: bold;
+        font-size: 24px;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        color: {color:Accent};
+      }
+
+    {CustomCSS}
+    
+    </style>
+  </head>
+
+  <body>
+   
+    <div class="mt">
+      Magic Transistor
+    </div>
+
+
+    <div class="menu"><a href="http://www.magictransistor.com/radio">Radio</a> • <a href="/archive">Archive</a></div>
+
+    <ul id="posts">
+      {block:Posts}
+        <div class="post_details">
+
+          <div class="float_left">
+            {block:Date}
+              {ShortMonth} {DayOfMonth} {Year}
+            {/block:Date}
+          </div>
+          
+          <div class="float_right">
+            {PostAuthorName}
+          </div>
+
+          <div class="minidiv"><img src="http://static.tumblr.com/mx89uy5/6NNm68qmm/short_line.png"></div>
+
+        </div>
+
+        {block:Text}
+          <li class="post text">
+            {block:Title}
+              <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            {Body}
+          </li>
+        {/block:Text}
+
+        {block:Photo}
+            <li class="post photo">
+                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+            </li>
+        {/block:Photo}
+
+        {block:Photoset}
+            <li class="post photoset">
+                {Photoset-500}
+
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+            </li>
+        {/block:Photoset}
+
+        {block:Quote}
+            <li class="post quote">
+                "{Quote}"
+
+                {block:Source}
+                    <div class="source">{Source}</div>
+                {/block:Source}
+            </li>
+        {/block:Quote}
+
+        {block:Link}
+            <li class="post link">
+                <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                {block:Description}
+                    <div class="description">{Description}</div>
+                {/block:Description}
+            </li>
+        {/block:Link}
+
+        {block:Chat}
+          <li class="post chat">
+            {block:Title}
+              <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+
+            <ul class="chat">
+              {block:Lines}
+                <li class="{Alt} user_{UserNumber}">
+                  {block:Label}
+                    <span class="label">{Label}</span>
+                  {/block:Label}
+
+                  {Line}
+                </li>
+              {/block:Lines}
+            </ul>
+          </li>
+        {/block:Chat}
+
+        {block:Video}
+          <div class="mediapost">
+            <li class="video">
+                <div class="videoembed">{Video-500}</div>
+
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+            </li>
+          </div>
+        {/block:Video}
+
+        {block:Audio}
+          <div class="mediapost">
+            <li class="post audio">
+                {AudioPlayerWhite}
+
+                {block:Caption}
+                    <div class="caption">{Caption}</div>
+                {/block:Caption}
+            </li>
+          </div>
+        {/block:Audio}
+
+        <div class="divider">
+          <img src="http://static.tumblr.com/mx89uy5/bZIm6254a/long_line.png" width="640" height="1" />
+        </div>
+
+      {/block:Posts}
+    </ul>
+
+    <p id="footer">
+        <div class="post_details">
+          
+          <div class="post_date">
+            {block:PreviousPage}
+              <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}
+          </div>
+
+        <div class="post_author">
+          {block:NextPage}
+            <a href="{NextPage}">Next &#187;</a>
+          {/block:NextPage}
+        </div>
+      
+      </div>
+    </p>
+
+    <script>
+      (function(){
+        var iframes = document.body.getElementsByTagName('iframe'),
+          newVideoWidth = 640,
+          newVideoHeight = 'auto';
+        for(x in iframes){
+          if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
+             iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
+            if(newVideoHeight == 'auto'){
+              newVideoHeight = ( newVideoWidth * 9 ) / 16;
+            }
+            iframes[x].width = newVideoWidth;
+            iframes[x].height = newVideoHeight
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,449 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, b, cite, code, del, dfn, em, i, img, ins, kbd, q, samp, strike, strong, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html {
+  font-size: 100.01%;
+}
+
+caption, cite, code, dfn, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+}
+
+:focus {
+  outline: 0;
+}
+
+ins {
+  text-decoration: underline;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  background-color: {color:Background};
+}
+
+body {
+  font: 12pt/18pt {font:Body};
+  background-color: {color: Background};
+  color: {color: Text};
+}
+
+body.dark {
+  text-shadow: {color:Background} 0 0 1px;
+}
+
+#body {
+  background-image: url('http://magictransistor.com/blog/bg_medium.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+} 
+
+{background-color: {color: Background}; padding: 1.5em 0.25em;}
+
+#logo {
+  align: 0 0 0 0;
+  margin: 0 0;
+  padding: 0 0:
+}
+
+#content {
+  position: relative;
+  width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1;
+  padding: 0.5em 0 1em;
+  text-align: center;
+}
+
+h1 a {
+  color: {color:Text};
+  padding: 0 0.25em; 
+  font-weight: bold;
+}
+
+h2, h3 {
+  line-height: 18pt;
+}
+
+p, pre, ul, ol, blockquote, form {
+  margin: 9pt 0 18pt;
+  line-height: 18pt;
+}
+
+blockquote {
+  padding-left: 1em;
+  margin-left: 2pt;
+  border-left: 0.25em solid {color:Minor};
+}
+
+pre {
+  overflow-x: auto;
+  font-size: 11pt;
+}
+
+sup, sub {
+  height: 0;
+  line-height: 1;
+  vertical-align: baseline;
+  _vertical-align: bottom;
+  position: relative;
+}
+
+sup {
+  bottom: 0.5ex;
+}
+
+sub {
+  top: 0.5ex;
+}
+
+sup a {
+  font-weight: normal !important;
+  padding: 0 1px;
+}
+
+hr {
+  height: 0;
+  margin: 0 0 18pt;
+  border: solid {color:Minor};
+  border-width: 2pt 0 0;
+}
+
+#description {
+  position: absolute;
+  left: 670px;
+  color: {color:Minor};
+  font-size: 11pt; width: 10em;
+}
+
+#description p, #description form, #description ul {
+  margin-top: 0;
+}
+
+#description a {
+  color: {color:Secondary};
+}
+
+#description a:hover {
+  color: {color:Text};
+}
+
+#description form .input {
+  background: {color:Background};
+  color: {color: Secondary};
+  font-size: 10pt;
+  text-transform: lowercase; 
+  width: 90%; 
+  border: solid {color: Minor};
+  border-width: 0 1px 1px 0;
+}
+
+#description .submit {
+  height: 0;
+  overflow: hidden;
+  display: block;
+}
+
+#description .meta {
+  list-style: none;
+  word-spacing: 0.25em;
+  font-size: 10pt;
+  text-transform: uppercase;
+}
+
+#description .meta a {
+  color: {color:Minor};
+}
+
+#description .meta a:hover {
+  color: {color:Text};
+}
+
+#posts {
+  margin: 0;
+  text-align: center;
+}
+
+.post {
+  position: relative;
+  list-style: none;
+  margin-bottom: 4.5em;
+}
+
+.post ul li {
+  list-style: square;
+}
+
+.post img {
+  max-width: 100%;
+}
+
+.post-body h3 {
+  font-size: 14px;
+  position: relative;
+}
+
+.post-body a {
+  font-weight: bold;
+  color: {color:Link};
+  border-bottom: 1px solid transparent;
+}
+
+.post-body a:hover {
+  color: {color:Text};
+  border-bottom-color: {color: Minor};
+}
+
+.post-body .image a {
+  border-width: 0;
+}
+
+.post-body ul ul, .post-body ul ol, .post-body ol ol, .post-body ol ul, .post-body blockquote ul, .post-body blockquote ol {
+  margin-left: 1.5em;
+}
+
+.permalink {
+  font-size: 10pt;
+  position: absolute;
+  right: 570px;
+  text-align: right;
+}
+
+.permalink a {
+  color: {color:Minor};
+  white-space: nowrap; 
+  padding: 0 0 4.5pt 9pt;
+}
+
+.permalink a:hover {
+  color: {color:Text};
+}
+
+a.disqus-permalink {
+  text-transform: lowercase;
+  padding-left: 0;
+}
+
+.caption, .cite {
+  font-size: 11pt;
+  margin-top: 9pt;
+}
+
+.caption p {
+  margin-top: 18pt;
+}
+
+.text-post {
+  position: relative;
+  top: -2pt;
+}
+
+.text-post h3 {
+  margin-bottom: 9pt;
+}
+
+.link-post {
+  position: relative;
+  top: -2pt;
+}
+
+.link-post h3 {
+  display: inline;
+  padding-right: 9pt;
+}
+
+.link-post a {
+  color: {color:Text};
+}
+
+.link-post a:hover {
+  color: {color:Secondary};
+}
+
+.link-post a.link {
+  color: {color:Link};
+}
+
+.link-post a.link:hover {
+  color: {color:Text};
+}
+
+.quote-post {
+  position: relative;
+  top: -4.5pt;
+}
+
+.quote-post blockquote.quote {
+  font-size: 14pt;
+  line-height: 24pt;
+  text-indent: -7pt;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+.quote-post .quote:before {
+  content: '“';
+}
+
+.quote-post .quote:after {
+  content: '”';
+}
+
+.quote-post .quote a {
+  color: {color:Text};
+}
+
+.quote-post .quote a:hover {
+  color: {color:Secondary};
+}
+
+.quote-post .cite {
+  color: {color:Secondary};
+  margin-left: 1.5em; text-indent: -1.5em;
+}
+
+.chat-post li {
+  list-style: none;
+  margin-left: 2em;
+  text-indent: -2em;
+}
+
+.chat-post b {
+  font-weight: bold;
+  padding-right: 4.5pt;
+}
+
+{block:IfSemitransparentAudioPlayer}
+
+.audio-post .audio {
+  opacity: 0.75;
+}
+
+{/block:IfSemitransparentAudioPlayer}
+
+.post-source {
+  color: {color:Secondary};
+}
+
+.post-source a {
+  color: {color:Secondary};
+}
+
+.post-source a:hover {
+  color: {color:Text};
+}
+
+.post-source .prefix {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+}
+
+#disqus_thread {
+  margin-top: 54pt;
+}
+
+#disqus_thread a {
+  color: {color:Secondary};
+}
+
+.notes {
+  color: {color:Minor};
+  margin-top: 54pt;
+}
+
+.notes li {
+  list-style: none;
+  margin-bottom: 18pt;
+}
+
+.notes img, .notes .clear {
+  display: none;
+}
+
+.notes .photo_container img {
+  display: block !important;
+}
+
+.notes a {
+  color: {color:Secondary};
+}
+
+.notes a:hover {
+  color: {color:Text};
+}
+
+.footnotes a[rev="footnote"] {
+  color: {color:Secondary};
+}
+
+.footnotes hr {
+  margin: 34pt 0 18pt;
+}
+
+#footer {
+  text-align: center;
+  word-spacing: 0.75em;
+  margin-top: 4.5em;
+}
+
+#footer a {
+  color: {color:Secondary};
+  font-weight:bold;
+  padding: 0.25em 0.5em;
+}
+
+#footer a:hover {
+  color: {color:Text};
+}
+
+.amp {
+  font-family: Palatino, 'Palatino Linotype', {font:Body};
+  font-style: italic;
+}
+
+h1 .amp, h2 .amp, h3 .amp {
+  font-family: Baskerville, Palatino, 'Palatino Linotype', {font:Body};
+}
+
+pre .amp {
+  font-family: inherit;
+  font-style: inherit;
+}
+
+{CustomCSS}
