@@ -12,16 +12,13 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script>
-        
-            function onLoad() {
-            
-                window.onscroll = function() {
-                    var speed = 2.0;
-                    document.body.style.backgroundPosition = (-window.scrollX / speed) + "px " + (-window.scrollY / speed) + "px";
-                }
-            
-            }
-        </script>
+      function parallax() {      
+        window.onscroll = function() {
+          var speed = 1.5;
+          document.body.style.backgroundPosition = (-window.scrollX / speed) + "px " + (-window.scrollY / speed) + "px";
+        }
+      }
+    </script>
     <script type="text/javascript" src="http://use.typekit.com/wap0zxn.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
@@ -32,16 +29,13 @@
       }
 
       body {
-        margin: 0 auto;
-        width: 775px;
-        padding: 0px 80px 0px;
         color: #fff;
         font-family: 'futura-pt', sans-serif;
         font-size: 15px;
         line-height: 18px;
         background-repeat:repeat-xy; 
         background-attachment: fixed;
-        background-image:url('http://static.tumblr.com/2jzwwaz/SHPm84dym/cables_bg.jpg');
+        background-image:url('{image:Background}');
       }
 
       a, a:visited {
@@ -62,7 +56,13 @@
       li {
         margin-left: 0px;
       }
-      
+
+      .wrapper {
+        margin: 0 auto;
+        width: 775px;
+        padding: 0px 80px 0px;
+      }
+
       .posts {
         width: 652px;
       }
@@ -104,6 +104,7 @@
       .video {
         width: 652px;
       }
+
       .post_details {
         display: table;
         font-size: 14px;
@@ -154,163 +155,162 @@
     </style>
   </head>
 
-  <body onload="onLoad()">
-  <div class="wrapper">
+  <body onload="parallax()">
+    <div class="wrapper">
+      <a href="http://magictransistor.tumblr.com/"><img class="logo" src="http://static.tumblr.com/2jzwwaz/A5pm83wbr/mt.gif" width="775"></a>
 
-    <a href="http://magictransistor.tumblr.com/"><img class="logo" src="http://static.tumblr.com/2jzwwaz/A5pm83wbr/mt.gif" width="775"></a>
+      <div class="menu"><a href="http://www.magictransistor.com/radio">Radio</a> • <a href="/archive">Archive</a></div>
 
-    <div class="menu"><a href="http://www.magictransistor.com/radio">Radio</a> • <a href="/archive">Archive</a></div>
+      <ul id="posts">
+        {block:Posts}
+          <div class="post_details">
 
-    <ul id="posts">
-      {block:Posts}
-        <div class="post_details">
+            <div class="float_left">
+              {block:Date}
+                {Month} {DayOfMonth}
+              {/block:Date}
+            </div>
+            
+            <div class="float_right">
+              by {PostAuthorName}
+            </div>
 
-          <div class="float_left">
-            {block:Date}
-              {Month} {DayOfMonth}
-            {/block:Date}
           </div>
-          
-          <div class="float_right">
-            by {PostAuthorName}
-          </div>
 
+          {block:Text}
+            <li class="post text">
+              {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+              {/block:Title}
+
+              {Body}
+            </li>
+          {/block:Text}
+
+          {block:Photo}
+              <li class="post photo">
+                <div class="mediapost">
+                  <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+
+                  {block:Caption}
+                      <div class="caption">{Caption}</div>
+                  {/block:Caption}
+                </div>
+              </li>
+          {/block:Photo}
+
+          {block:Photoset}
+              <li class="post photoset">
+                  {Photoset-500}
+
+                  {block:Caption}
+                      <div class="caption">{Caption}</div>
+                  {/block:Caption}
+              </li>
+          {/block:Photoset}
+
+          {block:Quote}
+              <li class="post quote">
+                  "{Quote}"
+
+                  {block:Source}
+                      <div class="source">{Source}</div>
+                  {/block:Source}
+              </li>
+          {/block:Quote}
+
+          {block:Link}
+              <li class="post link">
+                  <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                  {block:Description}
+                      <div class="description">{Description}</div>
+                  {/block:Description}
+              </li>
+          {/block:Link}
+
+          {block:Chat}
+            <li class="post chat">
+              {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+              {/block:Title}
+
+              <ul class="chat">
+                {block:Lines}
+                  <li class="{Alt} user_{UserNumber}">
+                    {block:Label}
+                      <span class="label">{Label}</span>
+                    {/block:Label}
+
+                    {Line}
+                  </li>
+                {/block:Lines}
+              </ul>
+            </li>
+          {/block:Chat}
+
+          {block:Video}
+            <div class="mediapost">
+              <li class="video">
+                  <div class="videoembed">{Video-500}</div>
+
+                  {block:Caption}
+                      <div class="caption">{Caption}</div>
+                  {/block:Caption}
+              </li>
+            </div>
+          {/block:Video}
+
+          {block:Audio}
+            <div class="mediapost">
+              <li class="post audio">
+                  {AudioPlayerWhite}
+
+                  {block:Caption}
+                      <div class="caption">{Caption}</div>
+                  {/block:Caption}
+              </li>
+            </div>
+          {/block:Audio}
+
+        {/block:Posts}
+      </ul>
+
+      <p id="footer">
+          <div class="post_details">
+            
+            <div class="post_date">
+              {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous</a>
+              {/block:PreviousPage}
+            </div>
+
+          <div class="post_author">
+            {block:NextPage}
+              <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+          </div>
+        
         </div>
+      </p>
 
-        {block:Text}
-          <li class="post text">
-            {block:Title}
-              <h3><a href="{Permalink}">{Title}</a></h3>
-            {/block:Title}
-
-            {Body}
-          </li>
-        {/block:Text}
-
-        {block:Photo}
-            <li class="post photo">
-              <div class="mediapost">
-                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
-
-                {block:Caption}
-                    <div class="caption">{Caption}</div>
-                {/block:Caption}
-              </div>
-            </li>
-        {/block:Photo}
-
-        {block:Photoset}
-            <li class="post photoset">
-                {Photoset-500}
-
-                {block:Caption}
-                    <div class="caption">{Caption}</div>
-                {/block:Caption}
-            </li>
-        {/block:Photoset}
-
-        {block:Quote}
-            <li class="post quote">
-                "{Quote}"
-
-                {block:Source}
-                    <div class="source">{Source}</div>
-                {/block:Source}
-            </li>
-        {/block:Quote}
-
-        {block:Link}
-            <li class="post link">
-                <a href="{URL}" class="link" {Target}>{Name}</a>
-
-                {block:Description}
-                    <div class="description">{Description}</div>
-                {/block:Description}
-            </li>
-        {/block:Link}
-
-        {block:Chat}
-          <li class="post chat">
-            {block:Title}
-              <h3><a href="{Permalink}">{Title}</a></h3>
-            {/block:Title}
-
-            <ul class="chat">
-              {block:Lines}
-                <li class="{Alt} user_{UserNumber}">
-                  {block:Label}
-                    <span class="label">{Label}</span>
-                  {/block:Label}
-
-                  {Line}
-                </li>
-              {/block:Lines}
-            </ul>
-          </li>
-        {/block:Chat}
-
-        {block:Video}
-          <div class="mediapost">
-            <li class="video">
-                <div class="videoembed">{Video-500}</div>
-
-                {block:Caption}
-                    <div class="caption">{Caption}</div>
-                {/block:Caption}
-            </li>
-          </div>
-        {/block:Video}
-
-        {block:Audio}
-          <div class="mediapost">
-            <li class="post audio">
-                {AudioPlayerWhite}
-
-                {block:Caption}
-                    <div class="caption">{Caption}</div>
-                {/block:Caption}
-            </li>
-          </div>
-        {/block:Audio}
-
-      {/block:Posts}
-    </ul>
-
-    <p id="footer">
-        <div class="post_details">
-          
-          <div class="post_date">
-            {block:PreviousPage}
-              <a href="{PreviousPage}">&#171; Previous</a>
-            {/block:PreviousPage}
-          </div>
-
-        <div class="post_author">
-          {block:NextPage}
-            <a href="{NextPage}">Next &#187;</a>
-          {/block:NextPage}
-        </div>
-      
-      </div>
-    </p>
-
-    <script>
-      (function(){
-        var iframes = document.body.getElementsByTagName('iframe'),
-          newVideoWidth = 640,
-          newVideoHeight = 'auto';
-        for(x in iframes){
-          if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
-             iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
-            if(newVideoHeight == 'auto'){
-              newVideoHeight = ( newVideoWidth * 9 ) / 16;
+      <script>
+        (function(){
+          var iframes = document.body.getElementsByTagName('iframe'),
+            newVideoWidth = 640,
+            newVideoHeight = 'auto';
+          for(x in iframes){
+            if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
+               iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
+              if(newVideoHeight == 'auto'){
+                newVideoHeight = ( newVideoWidth * 9 ) / 16;
+              }
+              iframes[x].width = newVideoWidth;
+              iframes[x].height = newVideoHeight
             }
-            iframes[x].width = newVideoWidth;
-            iframes[x].height = newVideoHeight
           }
-        }
-      })();
-    </script>
+        })();
+      </script>
     </div>
   </body>
 </html>
