@@ -4,7 +4,9 @@
 
     <meta name="viewport" content="width=775, maximum-scale=1.0" />
     <meta name="image:Background" content="http://static.tumblr.com/2jzwwaz/SHPm84dym/cables_bg.jpg"/>
+    <meta name="color:Text" content="#fff"/>
     <meta name="color:Accent" content="#ffef3e"/>
+    <meta name="color:Links" content="#999"/>
 
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -29,7 +31,7 @@
       }
 
       body {
-        color: #fff;
+        text-rendering: optimizeLegibility;
         font-family: 'futura-pt', sans-serif;
         font-size: 15px;
         line-height: 18px;
@@ -37,6 +39,7 @@
         background-attachment: fixed;
         background-color: #000;
         background-image:url('{image:Background}');
+        color: {color:Text};
       }
 
       a, a:visited {
@@ -45,7 +48,7 @@
       }
       
       a:hover {
-        color: #999;
+        color: {color:Links};
       }
 
       ul {
@@ -80,7 +83,7 @@
       .menu {
         margin: 15px 0px 15px 0px;
         padding: 10px 12px 10px 15px;
-        width: 260px;
+        width: 262px;
         font-size: 26px;
         letter-spacing: 3px;
         text-transform: uppercase;
@@ -153,7 +156,6 @@
         margin-right: auto;
         background: #000;
         cursor: default;
-        color: {color:Accent};
       }
 
     {CustomCSS}
