@@ -11,7 +11,17 @@
     <link rel="stylesheet" href="http://static.tumblr.com/mx89uy5/NM4m620wb/reset.css" type="text/css">
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://static.tumblr.com/mx89uy5/e28m621l6/jquery.fitvids.js"></script>
+    <script>
+        
+            function onLoad() {
+            
+                window.onscroll = function() {
+                    var speed = 2.0;
+                    document.body.style.backgroundPosition = (-window.scrollX / speed) + "px " + (-window.scrollY / speed) + "px";
+                }
+            
+            }
+        </script>
     <script type="text/javascript" src="http://use.typekit.com/wap0zxn.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
@@ -29,7 +39,9 @@
         font-family: 'futura-pt', sans-serif;
         font-size: 15px;
         line-height: 18px;
-        background: #333 url('{image:Background}');
+        background-repeat:repeat-xy; 
+        background-attachment: fixed;
+        background-image:url('http://static.tumblr.com/2jzwwaz/SHPm84dym/cables_bg.jpg');
       }
 
       a, a:visited {
@@ -61,7 +73,7 @@
         letter-spacing: 11px;
         background: #000;
         display: block;
-        text-transform:uppercase;
+        text-transform: uppercase;
       }
       
       .menu {
@@ -84,7 +96,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 40px;
-        padding-bottom: 8px;
+        padding-bottom: 6px;
         background: #000;
         width: 652px;
       }
@@ -142,8 +154,9 @@
     </style>
   </head>
 
-  <body>
-   
+  <body onload="onLoad()">
+  <div class="wrapper">
+
     <a href="http://magictransistor.tumblr.com/"><img class="logo" src="http://static.tumblr.com/2jzwwaz/A5pm83wbr/mt.gif" width="775"></a>
 
     <div class="menu"><a href="http://www.magictransistor.com/radio">Radio</a> • <a href="/archive">Archive</a></div>
@@ -298,16 +311,6 @@
         }
       })();
     </script>
-  </body>
-</html>{
-            if(newVideoHeight == 'auto'){
-              newVideoHeight = ( newVideoWidth * 9 ) / 16;
-            }
-            iframes[x].width = newVideoWidth;
-            iframes[x].height = newVideoHeight
-          }
-        }
-      })();
-    </script>
+    </div>
   </body>
 </html>
