@@ -91,7 +91,7 @@
         color: {color:Accent};
       }
 
-      .mediapost {
+      .post_content {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -131,24 +131,12 @@
         height: auto;
         margin: 0 auto;
       }
-
-      .divider {
-        margin: 12px 0 12px 0;
-        zoom: 1;
-        filter: alpha(opacity=50);
-        opacity: 0.5;
-      }
       
       .logo {
         display: block;
         margin: 0;
         margin-left: auto;
         margin-right: auto;
-      }
-
-      .minidiv {
-        float: left;
-        clear:both;
       }
 
     {CustomCSS}
@@ -165,7 +153,6 @@
       <ul id="posts">
         {block:Posts}
           <div class="post_details">
-
             <div class="float_left">
               {block:Date}
                 {Month} {DayOfMonth}
@@ -175,7 +162,6 @@
             <div class="float_right">
               by {PostAuthorName}
             </div>
-
           </div>
 
           {block:Text}
@@ -190,7 +176,7 @@
 
           {block:Photo}
               <li class="post photo">
-                <div class="mediapost">
+                <div class="post_content">
                   <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
 
                   {block:Caption}
@@ -252,19 +238,18 @@
 
           {block:Video}
             <li class="video">
-              <div class="mediapost">
-                  <div class="videoembed">{Video-500}</div>
-
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
+              <div class="post_content">
+                <div class="videoembed">{Video-500}</div>
+                {block:Caption}
+                  <div class="caption">{Caption}</div>
+                {/block:Caption}
               </div>
             </li>
           {/block:Video}
 
           {block:Audio}
             <li class="post audio">
-              <div class="mediapost">
+              <div class="post_content">
                   {AudioPlayerWhite}
 
                   {block:Caption}
@@ -305,6 +290,16 @@
                iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
               if(newVideoHeight == 'auto'){
                 newVideoHeight = ( newVideoWidth * 9 ) / 16;
+              }
+              iframes[x].width = newVideoWidth;
+              iframes[x].height = newVideoHeight
+            }
+          }
+        })();
+      </script>
+    </div>
+  </body>
+</html>;
               }
               iframes[x].width = newVideoWidth;
               iframes[x].height = newVideoHeight
