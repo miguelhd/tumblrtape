@@ -12,7 +12,8 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link rel="stylesheet" href="http://static.tumblr.com/mx89uy5/NM4m620wb/reset.css" type="text/css">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="http://static.tumblr.com/2jzwwaz/av6m9537j/jquery.popupwindow.js"></script>
     <script>
       function parallax() {      
         window.onscroll = function() {
@@ -51,7 +52,7 @@
         color: {color:Links};
       }
 
-      ul {
+      ul, ol {
         list-style-type: none;
         margin-left: 0;
         padding-left: 0;
@@ -99,7 +100,6 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 40px;
         padding-bottom: 6px;
         background: #000;
         width: 652px;
@@ -120,7 +120,43 @@
         background: #000;
         color: {color:Accent};
         }
+        
+      .post_notes {
+        display: table;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-left: auto; 
+        margin-right: auto;
+        padding: 6px 8px 6px 8px;
+        width: 636px;
+        background: #000;
+        color: {color:Accent};
+      }
 
+      .post_tags {
+        font-size: 13px;
+        margin-top: 2px;
+        margin-left: auto; 
+        margin-right: auto;
+        padding: 6px 8px 6px 8px;
+        width: 636px;
+        background: #000;
+      }
+      
+      .post_block {
+        margin-bottom: 40px;
+      }
+
+      .tags {
+        text-overflow: ellipsis;
+        display: inline-block;
+        width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: top;
+        opacity:0.5;
+      }
+      
       .float_left {
         float: left;
       }
@@ -167,121 +203,157 @@
     <div class="wrapper">
       <a href="http://magictransistor.tumblr.com/"><img class="logo" src="http://static.tumblr.com/2jzwwaz/A5pm83wbr/mt.gif" width="775"></a>
 
-      <div class="menu"><a href="http://www.magictransistor.com/radio">Radio</a> • <a href="/archive">Archive</a></div>
+      <div class="menu"><a href="http://magictransistor.com/radio" title="Magic Transistor Radio" class="mtradio">Radio</a> • <a href="/archive">Archive</a></div>
 
+    <script type="text/javascript"> 
+      $('.mtradio').popupWindow({ 
+        location:0,
+        height:385, 
+        width:540, 
+        top:50, 
+        left:50 
+        }); 
+    </script>
+    
       <ul id="posts">
         {block:Posts}
-          <div class="post_details">
-            <div class="float_left">
-              {block:Date}
-                {Month} {DayOfMonth}
-              {/block:Date}
+          <div class="post_block">
+            <div class="post_details">
+              
+              <div class="float_left">
+                {block:Date}
+                  {Month} {DayOfMonth}
+                {/block:Date}
+              </div>
+              
+              <div class="float_right">
+                by {PostAuthorName}
+              </div>
             </div>
-            
-            <div class="float_right">
-              by {PostAuthorName}
-            </div>
-          </div>
 
-          {block:Text}
-            <li class="post text">
-              {block:Title}
-                <h3><a href="{Permalink}">{Title}</a></h3>
-              {/block:Title}
+            {block:Text}
+              <li class="post text">
+                {block:Title}
+                  <h3><a href="{Permalink}">{Title}</a></h3>
+                {/block:Title}
 
-              {Body}
-            </li>
-          {/block:Text}
+                {Body}
+              </li>
+            {/block:Text}
 
-          {block:Photo}
-              <li class="post photo">
+            {block:Photo}
+                <li class="post photo">
+                  <div class="post_content">
+                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                  </div>
+                </li>
+            {/block:Photo}
+
+            {block:Photoset}
+                <li class="post photoset">
+                    {Photoset-500}
+
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                </li>
+            {/block:Photoset}
+
+            {block:Quote}
+                <li class="post quote">
+                    "{Quote}"
+
+                    {block:Source}
+                        <div class="source">{Source}</div>
+                    {/block:Source}
+                </li>
+            {/block:Quote}
+
+            {block:Link}
+                <li class="post link">
+                    <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                    {block:Description}
+                        <div class="description">{Description}</div>
+                    {/block:Description}
+                </li>
+            {/block:Link}
+
+            {block:Chat}
+              <li class="post chat">
+                {block:Title}
+                  <h3><a href="{Permalink}">{Title}</a></h3>
+                {/block:Title}
+
+                <ul class="chat">
+                  {block:Lines}
+                    <li class="{Alt} user_{UserNumber}">
+                      {block:Label}
+                        <span class="label">{Label}</span>
+                      {/block:Label}
+
+                      {Line}
+                    </li>
+                  {/block:Lines}
+                </ul>
+              </li>
+            {/block:Chat}
+
+            {block:Video}
+              <li class="video">
                 <div class="post_content">
-                  <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
-
+                  <div class="videoembed">{Video-500}</div>
                   {block:Caption}
-                      <div class="caption">{Caption}</div>
+                    <div class="caption">{Caption}</div>
                   {/block:Caption}
                 </div>
               </li>
-          {/block:Photo}
+            {/block:Video}
 
-          {block:Photoset}
-              <li class="post photoset">
-                  {Photoset-500}
+            {block:Audio}
+              <li class="post audio">
+                <div class="post_content">
+                    {AudioPlayerWhite}
 
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                </div>
               </li>
-          {/block:Photoset}
+            {/block:Audio}
+            
+            {block:HasTags}
+              <div class="post_tags">
+                <div class="tags">
+                  {block:Tags}
+                    #<a href="{TagURL}">{Tag}</a>&nbsp;
+                  {/block:Tags}  
+                </div>
 
-          {block:Quote}
-              <li class="post quote">
-                  "{Quote}"
-
-                  {block:Source}
-                      <div class="source">{Source}</div>
-                  {/block:Source}
-              </li>
-          {/block:Quote}
-
-          {block:Link}
-              <li class="post link">
-                  <a href="{URL}" class="link" {Target}>{Name}</a>
-
-                  {block:Description}
-                      <div class="description">{Description}</div>
-                  {/block:Description}
-              </li>
-          {/block:Link}
-
-          {block:Chat}
-            <li class="post chat">
-              {block:Title}
-                <h3><a href="{Permalink}">{Title}</a></h3>
-              {/block:Title}
-
-              <ul class="chat">
-                {block:Lines}
-                  <li class="{Alt} user_{UserNumber}">
-                    {block:Label}
-                      <span class="label">{Label}</span>
-                    {/block:Label}
-
-                    {Line}
-                  </li>
-                {/block:Lines}
-              </ul>
-            </li>
-          {/block:Chat}
-
-          {block:Video}
-            <li class="video">
-              <div class="post_content">
-                <div class="videoembed">{Video-500}</div>
-                {block:Caption}
-                  <div class="caption">{Caption}</div>
-                {/block:Caption}
+                {block:NoteCount} 
+                  <div class="float_right">
+                    <a href="{Permalink}">{NoteCountWithLabel}</a>                  
+                  </div>
+                {/block:NoteCount} 
               </div>
-            </li>
-          {/block:Video}
-
-          {block:Audio}
-            <li class="post audio">
-              <div class="post_content">
-                  {AudioPlayerWhite}
-
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
-              </div>
-            </li>
-          {/block:Audio}
-
+            {/block:HasTags}
+            
+            {block:PermalinkPage}
+              <div class="post_notes">{PostNotes}</div>
+            {/block:PermalinkPage}
+          
+          </div>
         {/block:Posts}
+        
+          
       </ul>
 
-      <p id="footer">
+      {block:IndexPage}
+        <p id="footer">
           <div class="pagination">
             
             <div class="float_left">
@@ -290,14 +362,15 @@
               {/block:PreviousPage}
             </div>
 
-          <div class="float_right">
-            {block:NextPage}
-              <a href="{NextPage}">Next &#187;</a>
-            {/block:NextPage}
+            <div class="float_right">
+              {block:NextPage}
+                <a href="{NextPage}">Next &#187;</a>
+              {/block:NextPage}
+            </div>
+    
           </div>
-        
-        </div>
-      </p>
+        </p>
+      {/block:IndexPage}
 
       <script>
         (function(){
@@ -317,5 +390,17 @@
         })();
       </script>
     </div>
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34260033-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </body>
 </html>
