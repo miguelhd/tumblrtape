@@ -122,9 +122,9 @@
         }
         
       .post_notes {
-        display: table;
-        font-size: 15px;
-        margin-top: 20px;
+        line-height: 26px;
+        font-size: 14px;
+        margin-top: 15px;
         margin-left: auto; 
         margin-right: auto;
         padding: 6px 8px 6px 8px;
@@ -138,8 +138,9 @@
         margin-top: 2px;
         margin-left: auto; 
         margin-right: auto;
-        padding: 6px 8px 6px 8px;
+        padding: 6px 8px 0px 8px;
         width: 636px;
+        height: 25px;
         background: #000;
       }
       
@@ -147,7 +148,7 @@
         margin-bottom: 40px;
       }
 
-      .tags {
+      .truncated_tags {
         text-overflow: ellipsis;
         display: inline-block;
         width: 300px;
@@ -157,12 +158,20 @@
         opacity:0.5;
       }
       
-      .float_left {
-        float: left;
+      .tags {
+        display: inline-block;
+        opacity:0.5;
       }
-
-      .float_right {
-        float: right;
+      
+      .permalink_tags {
+        font-size: 13px;
+        margin-left: auto; 
+        margin-right: auto;
+        padding: 0px 8px 0px 8px;
+        width: 636px;
+        height: 25px;
+        color: #777;
+        background: #000;
       }
       
       .photo img {
@@ -192,6 +201,14 @@
         margin-right: auto;
         background: #000;
         cursor: default;
+      }
+                 
+      .float_left {
+        float: left;
+      }
+
+      .float_right {
+        float: right;
       }
 
     {CustomCSS}
@@ -328,21 +345,26 @@
             
             {block:HasTags}
               <div class="post_tags">
-                <div class="tags">
-                  {block:Tags}
-                    #<a href="{TagURL}">{Tag}</a>&nbsp;
-                  {/block:Tags}  
-                </div>
 
                 {block:NoteCount} 
-                  <div class="float_right">
                     <a href="{Permalink}">{NoteCountWithLabel}</a>                  
-                  </div>
-                {/block:NoteCount} 
+                {/block:NoteCount}
+                
+                <div class="float_right">
+                  <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
+                  <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a></div>
               </div>
             {/block:HasTags}
             
             {block:PermalinkPage}
+              <div class="permalink_tags">
+                <div class="tags">
+                  {block:Tags}
+                    #<a href="{TagURL}">{Tag}</a>&nbsp;
+                  {/block:Tags}
+                </div>
+              </div>
+
               <div class="post_notes">{PostNotes}</div>
             {/block:PermalinkPage}
           
