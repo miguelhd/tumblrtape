@@ -15,22 +15,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script src="http://static.tumblr.com/2jzwwaz/av6m9537j/jquery.popupwindow.js"></script>
 
-    <script type="text/javascript">
- 
-      $(document).ready(function(){
- 
-        $(".permalink_tags").hide();
-        $(".taglink").show();
- 
-        $('.taglink').click(function(){
-          $(".permalink_tags").slideToggle();
-        });
- 
-      });
- 
-    </script>
-
-
     <script>
       function parallax() {      
         window.onscroll = function() {
@@ -131,7 +115,7 @@
         float: left;
       }
       
-      .reblog {
+      .reblog_icon {
         float:right;
       }
       
@@ -222,6 +206,18 @@
         margin-right: auto;
         background: #000;
         cursor: default;
+      }
+      
+      .copyright {
+        margin: 40px 0px 15px 0px;
+        padding: 3px 6px 3px 7px;
+        width: 125px;
+        font-size: 12px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        background: #000;
+        color: {color:Accent};
       }
                  
       .float_left {
@@ -367,9 +363,9 @@
             {block:HasTags}
               <div class="post_tags">
               
-                <a href="#" class="taglink">Tags</a>
+                <a href="{Permalink}" class="taglink">permalink</a>
                 
-                <div class="reblog">
+                <div class="reblog_icon">
                   <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
                   <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a>
                 </div>
@@ -379,17 +375,9 @@
                     <a href="{Permalink}">{NoteCountWithLabel}</a>
                   </div>                  
                 {/block:NoteCount}
-                
+
               </div>
             {/block:HasTags}
-
-                            <div class="permalink_tags">
-                  <div class="tags">
-                    {block:Tags}
-                      #<a href="{TagURL}">{Tag}</a>&nbsp;
-                    {/block:Tags}
-                  </div>
-                </div>
             
             {block:PermalinkPage}
               <div class="permalink_tags">
@@ -399,13 +387,14 @@
                   {/block:Tags}
                 </div>
               </div>
-
-              <div class="post_notes">{PostNotes}</div>
+              {block:NoteCount}
+                <div class="post_notes">{PostNotes}</div>
+              {/block:NoteCount}
+              <div class="copyright">Magic Transistor © 2012</div>
             {/block:PermalinkPage}
           
           </div>
         {/block:Posts}
-        
           
       </ul>
 
