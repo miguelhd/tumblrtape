@@ -109,6 +109,20 @@
         width: 652px;
         margin: 0 auto;
       }
+      
+      .taglink {
+        float: left;
+      }
+      
+      .reblog {
+        float:right;
+      }
+      
+      .notes_count {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       .post_details {
         display: table;
@@ -119,7 +133,7 @@
         width: 636px;
         background: #000;
         color: {color:Accent};
-        }
+      }
         
       .post_notes {
         line-height: 26px;
@@ -146,16 +160,6 @@
       
       .post_block {
         margin-bottom: 40px;
-      }
-
-      .truncated_tags {
-        text-overflow: ellipsis;
-        display: inline-block;
-        width: 300px;
-        white-space: nowrap;
-        overflow: hidden;
-        vertical-align: top;
-        opacity:0.5;
       }
       
       .tags {
@@ -345,14 +349,20 @@
             
             {block:HasTags}
               <div class="post_tags">
-
+              
+                <div class="taglink">Tags</div>
+                
+                <div class="reblog">
+                  <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
+                  <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a>
+                </div>
+              
                 {block:NoteCount} 
-                    <a href="{Permalink}">{NoteCountWithLabel}</a>                  
+                  <div class="notes_count">
+                    <a href="{Permalink}">{NoteCountWithLabel}</a>
+                  </div>                  
                 {/block:NoteCount}
                 
-                <div class="float_right">
-                  <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
-                  <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a></div>
               </div>
             {/block:HasTags}
             
