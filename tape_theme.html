@@ -98,7 +98,7 @@
         text-align: left;
         margin-left: auto;
         margin-right: auto;
-        padding-bottom: 6px;
+        padding-bottom: 8px;
         background: {color:Block};
         width: 652px;
       }
@@ -108,12 +108,21 @@
         margin: 0 auto;
       }
       
-      .mediaembed {
-        margin-left: 6px;
+      .photo img {
+        display: block;
+        max-width: 640px; 
+        height: auto;
+        margin: 0 auto;
       }
       
-      .taglink {
-        float: left;
+      .caption {
+        padding-top:6px;
+      }
+      
+      .mediaembed {
+        margin-left: 6px;
+        padding: 0;
+        max-height: 360px;
       }
       
       .reblog_icon {
@@ -126,6 +135,7 @@
       }
       
       .notes_count {
+        width: 50px;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -183,13 +193,6 @@
         height: auto;
         color: #777;
         background: {color:Block};
-      }
-      
-      .photo img {
-        display: block;
-        max-width: 640px; 
-        height: auto;
-        margin: 0 auto;
       }
       
       .logo {
@@ -282,13 +285,23 @@
               </li>
             {/block:Text}
 
+            {block:Video}
+              <li class="video">
+                <div class="post_content">
+                  <div class="mediaembed">{Video-500}</div>
+                  {block:Caption}
+                    <div class="caption">{Caption}</div>
+                  {/block:Caption}
+                </div>
+              </li>
+            {/block:Video}
+
             {block:Photo}
-                <li class="post photo">
+                <li class="photo">
                   <div class="post_content">
                     <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
-
                     {block:Caption}
-                        <div class="caption">{Caption}</div>
+                      <div class="caption">{Caption}</div>
                     {/block:Caption}
                   </div>
                 </li>
@@ -303,6 +316,18 @@
                     {/block:Caption}
                 </li>
             {/block:Photoset}
+            
+            {block:Audio}
+              <li class="post audio">
+                <div class="post_content">
+                  <div class="mediaembed">{AudioPlayerWhite}</div>
+
+                    {block:Caption}
+                        <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                </div>
+              </li>
+            {/block:Audio}
 
             {block:Quote}
                 <li class="post quote">
@@ -343,34 +368,11 @@
                 </ul>
               </li>
             {/block:Chat}
-
-            {block:Video}
-              <li class="video">
-                <div class="post_content">
-                  <div class="mediaembed">{Video-500}</div>
-                  {block:Caption}
-                    <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                </div>
-              </li>
-            {/block:Video}
-
-            {block:Audio}
-              <li class="post audio">
-                <div class="post_content">
-                  <div class="mediaembed">{AudioPlayerWhite}</div>
-
-                    {block:Caption}
-                        <div class="caption">{Caption}</div>
-                    {/block:Caption}
-                </div>
-              </li>
-            {/block:Audio}
             
             {block:HasTags}
               <div class="post_tags">
               
-                <a href="{Permalink}" class="taglink">permalink</a>
+                <a href="{Permalink}" class="float_left">permalink</a>
                 
                 <div class="reblog_icon">
                   <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
