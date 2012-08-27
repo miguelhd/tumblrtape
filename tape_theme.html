@@ -7,6 +7,7 @@
     <meta name="color:Text" content="#fff"/>
     <meta name="color:Accent" content="#ffef3e"/>
     <meta name="color:Links" content="#999"/>
+    <meta name="color:Block" content="rgba(0,0,0,0.9)"/>
 
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -34,12 +35,12 @@
 
       body {
         text-rendering: optimizeLegibility;
-        font-family: 'rooney-web', serif;
-        font-size: 14px;
+        font-family: 'adobe-garamond-pro', serif;
+        font-size: 15px;
         line-height: 19px;
         background-repeat:repeat-xy; 
         background-attachment: fixed;
-        background-color: #000;
+        background-color: {color:Block};
         background-image:url('{image:Background}');
         color: {color:Text};
       }
@@ -76,15 +77,6 @@
       .posts {
         width: 652px;
       }
-
-      .mt {
-        padding: 19px 62px 20px;
-        font-size: 55px;
-        letter-spacing: 11px;
-        background: #000;
-        display: block;
-        text-transform: uppercase;
-      }
       
       .menu {
         font-family: 'futura-pt', sans-serif;
@@ -103,17 +95,21 @@
       }
 
       .post_content {
-        text-align: center;
+        text-align: left;
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 6px;
-        background: #000;
+        background: {color:Block};
         width: 652px;
       }
       
       .video {
         width: 652px;
         margin: 0 auto;
+      }
+      
+      .mediaembed {
+        margin-left: 6px;
       }
       
       .taglink {
@@ -137,36 +133,36 @@
 
       .post_details {
         display: table;
-        font-size: 14px;
+        font-size: 15px;
         margin-left: auto; 
         margin-right: auto;
         padding: 6px 8px 6px 8px;
         width: 636px;
-        background: #000;
+        background: {color:Block};
         color: {color:Accent};
       }
         
       .post_notes {
         line-height: 26px;
-        font-size: 13px;
+        font-size: 14px;
         margin-top: 15px;
         margin-left: auto; 
         margin-right: auto;
         padding: 6px 8px 6px 8px;
         width: 636px;
-        background: #000;
+        background: {color:Block};
         color: {color:Accent};
       }
 
       .post_tags {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 2px;
         margin-left: auto; 
         margin-right: auto;
         padding: 6px 8px 0px 8px;
         width: 636px;
         height: 25px;
-        background: #000;
+        background: {color:Block};
       }
       
       .post_block {
@@ -179,14 +175,14 @@
       }
       
       .permalink_tags {
-        font-size: 12px;
+        font-size: 13px;
         margin-left: auto; 
         margin-right: auto;
-        padding: 0px 8px 0px 8px;
+        padding: 0px 8px 8px 8px;
         width: 636px;
-        height: 25px;
+        height: auto;
         color: #777;
-        background: #000;
+        background: {color:Block};
       }
       
       .photo img {
@@ -223,7 +219,7 @@
         margin: 40px 0px 15px 0px;
         padding: 3px 6px 3px 7px;
         width: 125px;
-        font-size: 11px;
+        font-size: 12px;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -351,7 +347,7 @@
             {block:Video}
               <li class="video">
                 <div class="post_content">
-                  <div class="videoembed">{Video-500}</div>
+                  <div class="mediaembed">{Video-500}</div>
                   {block:Caption}
                     <div class="caption">{Caption}</div>
                   {/block:Caption}
@@ -362,7 +358,7 @@
             {block:Audio}
               <li class="post audio">
                 <div class="post_content">
-                    {AudioPlayerWhite}
+                  <div class="mediaembed">{AudioPlayerWhite}</div>
 
                     {block:Caption}
                         <div class="caption">{Caption}</div>
