@@ -57,7 +57,7 @@
       ul, ol {
         list-style-type: none;
         margin-left: 0;
-        padding-left: 0;
+        padding-left: 8px;
       }
 
       li {
@@ -65,7 +65,7 @@
       }
       
       p {
-        padding: 0px 8px 0px 8px;
+        padding: 0px 8px 5px 8px;
       }
 
       .wrapper {
@@ -119,6 +119,12 @@
         padding-top:6px;
       }
       
+      .link_title {
+        font-size: 30px;
+        line-height: 28px;
+        padding: 8px;
+        }
+      
       .source {
           padding: 0 8px 0 8px;
           text-align:right;
@@ -136,6 +142,10 @@
         max-height: 360px;
       }
       
+      .chat {
+        padding: 8px;
+      }
+      
       .reblog_icon {
         float:right;
         opacity: 0.7;
@@ -146,7 +156,7 @@
       }
       
       .notes_count {
-        width: 50px;
+        width: 100px;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -357,7 +367,7 @@
             {block:Link}
                 <li class="post link">
                   <div class="post_content">
-                    <a href="{URL}" class="link" {Target}>{Name}</a>
+                    <div class="link_title"><a href="{URL}" class="link" {Target}>{Name}</a></div>
 
                     {block:Description}
                         <div class="description">{Description}</div>
@@ -368,6 +378,7 @@
 
             {block:Chat}
               <li class="post chat">
+               <div class="post_content">
                 {block:Title}
                   <h3><a href="{Permalink}">{Title}</a></h3>
                 {/block:Title}
@@ -383,6 +394,7 @@
                     </li>
                   {/block:Lines}
                 </ul>
+                </div>
               </li>
             {/block:Chat}
             
@@ -413,9 +425,11 @@
                   {/block:Tags}
                 </div>
               </div>
+
               {block:NoteCount}
                 <div class="post_notes">{PostNotes}</div>
               {/block:NoteCount}
+
               <div class="copyright">Magic Transistor © 2012</div>
             {/block:PermalinkPage}
           
