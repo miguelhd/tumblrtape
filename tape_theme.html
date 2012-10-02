@@ -464,14 +464,14 @@
 
                 <div class="permapagination">  
                   <div class="float_left">
-                    {block:PreviousPost}
-                      <a href="{PreviousPost}">&#171; Prev</a>
-                    {/block:PreviousPost}
+                    {block:NextPost}
+                      <a href="{NextPost}">&#171; Prev</a>
+                    {/block:NextPost}
                   </div>
                   <div class="float_right" style="min-width: 84px">
-                    {block:NextPost}
-                      <a href="{NextPost}">Next &#187;</a>
-                    {/block:NextPost}
+                    {block:PreviousPost}
+                      <a href="{PreviousPost}">Next &#187;</a>
+                    {/block:PreviousPost}
                   </div>          
                 </div>
 
@@ -482,7 +482,7 @@
                 <div class="post_notes">{PostNotes}</div>
               {/block:NoteCount}
 
-          {/block:PermalinkPage}          
+          {/block:PermalinkPage}
           </div>
 
         {/block:Posts}
