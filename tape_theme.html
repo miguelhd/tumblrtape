@@ -7,7 +7,8 @@
     <meta name="color:Text" content="#fff"/>
     <meta name="color:Accent" content="#ffef3e"/>
     <meta name="color:Links" content="#999"/>
-    <meta name="color:Block" content="rgba(0,0,0,0.9)"/>
+    <meta name="color:LinksHover" content="#fff"/>
+    <meta name="color:Blocks" content="rgba(0,0,0,1)"/>
 
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -35,23 +36,23 @@
 
       body {
         text-rendering: optimizeLegibility;
-        font-family: 'adobe-garamond-pro', serif;
+        font-family: 'chaparral-pro', serif;
         font-size: 15px;
         line-height: 19px;
         background-repeat:repeat-xy; 
         background-attachment: fixed;
-        background-color: {color:Block};
+        background-color: {color:Blocks};
         background-image:url('{image:Background}');
         color: {color:Text};
       }
 
       a, a:visited {
         text-decoration: none;
-        color: #fff
+        color: {color:Links};
       }
       
       a:hover {
-        color: {color:Links};
+        color: {color:LinksHover};
       }
 
       ul, ol {
@@ -65,7 +66,7 @@
       }
       
       p {
-        padding: 0px 8px 5px 8px;
+        padding: 0px 8px 0px 8px;
       }
 
       .wrapper {
@@ -93,13 +94,21 @@
         cursor: default;
         color: {color:Accent};
       }
+      
+      .menu a {
+        color: #fff;
+      }
+      
+      .menu a:hover {
+        color: {color:LinksHover};
+        }
 
       .post_content {
         text-align: left;
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 8px;
-        background: {color:Block};
+        background: {color:Blocks};
         width: 652px;
       }
       
@@ -169,7 +178,7 @@
         margin-right: auto;
         padding: 6px 8px 6px 8px;
         width: 636px;
-        background: {color:Block};
+        background: {color:Blocks};
         color: {color:Accent};
       }
         
@@ -181,7 +190,7 @@
         margin-right: auto;
         padding: 6px 8px 6px 8px;
         width: 636px;
-        background: {color:Block};
+        background: {color:Blocks};
         color: {color:Accent};
       }
 
@@ -193,7 +202,7 @@
         padding: 6px 8px 0px 8px;
         width: 636px;
         height: 25px;
-        background: {color:Block};
+        background: {color:Blocks};
       }
       
       .post_block {
@@ -202,7 +211,7 @@
       
       .tags {
         display: inline-block;
-        opacity:0.5;
+        opacity:1;
       }
       
       .permalink_tags {
@@ -213,7 +222,7 @@
         width: 636px;
         height: auto;
         color: #777;
-        background: {color:Block};
+        background: {color:Blocks};
       }
       
       .logo {
@@ -227,14 +236,10 @@
         font-family: 'futura-pt', sans-serif;
         margin-top: -25px;
         padding: 10px 12px 10px 15px;
-        width: 744px;
         min-height: 20px;
         font-size: 26px;
         letter-spacing: 3px;
         text-transform: uppercase;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
         background: #000;
         cursor: default;
       }
@@ -448,7 +453,8 @@
               {/block:PreviousPage}
             </div>
 
-            <div class="float_right">
+            <div class="float_right"style="
+    width: 96px;">
               {block:NextPage}
                 <a href="{NextPage}">Next &#187;</a>
               {/block:NextPage}
