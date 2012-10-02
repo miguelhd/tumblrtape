@@ -36,7 +36,7 @@
 
       body {
         text-rendering: optimizeLegibility;
-        font-family: 'chaparral-pro', serif;
+        font-family: 'ltc-bodoni-175', serif;
         font-size: 15px;
         line-height: 19px;
         background-repeat:repeat-xy; 
@@ -135,8 +135,8 @@
         }
       
       .source {
-          padding: 0 8px 0 8px;
-          text-align:right;
+        padding: 0 8px 0 8px;
+        text-align:right;
       }
       
       .quotation {
@@ -188,6 +188,7 @@
         margin-top: 15px;
         margin-left: auto; 
         margin-right: auto;
+        margin-bottom: 25px;
         padding: 6px 8px 6px 8px;
         width: 636px;
         background: {color:Blocks};
@@ -211,7 +212,7 @@
       
       .tags {
         display: inline-block;
-        opacity:1;
+        opacity: 1;
       }
       
       .permalink_tags {
@@ -234,7 +235,6 @@
       
       .pagination {
         font-family: 'futura-pt', sans-serif;
-        margin-top: -25px;
         padding: 10px 12px 10px 15px;
         min-height: 20px;
         font-size: 26px;
@@ -244,8 +244,38 @@
         cursor: default;
       }
       
+      .pagination a {
+        color: #fff;
+      }
+      
+      .pagination a:hover {
+        color: {color:LinksHover};
+      }
+
+      .permapagination {
+        font-family: 'futura-pt', sans-serif;
+        padding: 6px 4px 6px 8px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 20px;
+        font-size: 22px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        background: #000;
+        cursor: default;
+        width: 640px;
+      }
+      
+      .permapagination a {
+        color: #fff;
+      }
+      
+      .permapagination a:hover {
+        color: {color:LinksHover};
+      }
+      
       .copyright {
-        margin: 40px 0px 15px 0px;
+        margin: 40px 0px 0px 0px;
         padding: 3px 6px 3px 7px;
         width: 125px;
         font-size: 12px;
@@ -253,7 +283,7 @@
         margin-left: auto;
         margin-right: auto;
         background: #000;
-        color: {color:Accent};
+        color: #fff;
       }
                  
       .float_left {
@@ -403,44 +433,64 @@
               </li>
             {/block:Chat}
             
-            {block:HasTags}
-              <div class="post_tags">
+            <div class="post_tags">
+              <a href="{Permalink}" class="float_left">permalink</a>
               
-                <a href="{Permalink}" class="float_left">permalink</a>
-                
-                <div class="reblog_icon">
-                  <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
-                  <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a>
-                </div>
-              
-                {block:NoteCount} 
-                  <div class="notes_count">
-                    <a href="{Permalink}">{NoteCountWithLabel}</a>
-                  </div>                  
-                {/block:NoteCount}
-
+              <div class="reblog_icon">
+                <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
+                <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a>
               </div>
-            {/block:HasTags}
             
+              {block:NoteCount} 
+                <div class="notes_count">
+                  <a href="{Permalink}">{NoteCountWithLabel}</a>
+                </div>                  
+              {/block:NoteCount}
+            </div>
+
             {block:PermalinkPage}
-              <div class="permalink_tags">
-                <div class="tags">
-                  {block:Tags}
-                    #<a href="{TagURL}">{Tag}</a>&nbsp;
-                  {/block:Tags}
+              {block:HasTags}
+                <div class="permalink_tags">
+                  <div class="tags">
+                    {block:Tags}
+                      #<a href="{TagURL}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                  </div>
                 </div>
+              {/block:HasTags}
+
+              <div id="footer">
+                {block:PermalinkPagination}
+
+                <div class="permapagination">  
+                  <div class="float_left">
+                    {block:PreviousPost}
+                      <a href="{PreviousPost}">&#171; Prev</a>
+                    {/block:PreviousPost}
+                  </div>
+                  <div class="float_right" style="min-width: 84px">
+                    {block:NextPost}
+                      <a href="{NextPost}">Next &#187;</a>
+                    {/block:NextPost}
+                  </div>          
+                </div>
+
+                {/block:PermalinkPagination}
               </div>
 
               {block:NoteCount}
                 <div class="post_notes">{PostNotes}</div>
               {/block:NoteCount}
 
-              <div class="copyright">Magic Transistor © 2012</div>
-            {/block:PermalinkPage}
-          
+          {/block:PermalinkPage}          
           </div>
+
         {/block:Posts}
-          
+
+        {block:PermalinkPage}
+          <div class="copyright">Magic Transistor © 2012</div>
+        {/block:PermalinkPage}
+
       </ul>
 
       {block:IndexPage}
@@ -453,8 +503,7 @@
               {/block:PreviousPage}
             </div>
 
-            <div class="float_right"style="
-    width: 96px;">
+            <div class="float_right" style="min-width: 96px">
               {block:NextPage}
                 <a href="{NextPage}">Next &#187;</a>
               {/block:NextPage}
