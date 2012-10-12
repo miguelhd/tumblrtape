@@ -36,10 +36,10 @@
 
       body {
         text-rendering: optimizeLegibility;
-        font-family: 'ltc-bodoni-175', serif;
+        font-family: "ltc-bodoni-175", serif;
         font-size: 15px;
         line-height: 19px;
-        background-repeat:repeat-xy; 
+        background-repeat:repeat; 
         background-attachment: fixed;
         background-color: {color:Blocks};
         background-image:url('{image:Background}');
@@ -120,6 +120,15 @@
       .photo img {
         display: block;
         max-width: 640px; 
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .photoset img {
+        display: block;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto; 
         height: auto;
         margin: 0 auto;
       }
@@ -366,12 +375,14 @@
             {/block:Photo}
 
             {block:Photoset}
-                <li class="post photoset">
-                    {Photoset-500}
+                <li class="photoset">
+                  <div class="post_content">
+                    {Photoset-700}
 
                     {block:Caption}
-                        <div class="caption">{Caption}</div>
+                      <div class="caption">{Caption}</div>
                     {/block:Caption}
+                  </div>
                 </li>
             {/block:Photoset}
             
