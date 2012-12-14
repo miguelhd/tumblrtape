@@ -25,8 +25,45 @@
         }
       }
     </script>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){ 
+ 
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('.scrolltotop').fadeIn();
+                (function(){
+                  var iframes = document.body.getElementsByTagName('iframe'),
+                    newVideoWidth = 640,
+                    newVideoHeight = 'auto';
+                  for(x in iframes){
+                    if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
+                       iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
+                      if(newVideoHeight == 'auto'){
+                        newVideoHeight = ( newVideoWidth * 9 ) / 16;
+                      }
+                      iframes[x].width = newVideoWidth;
+                      iframes[x].height = newVideoHeight
+                    }
+                  }
+                })();
+            } else {
+                $('.scrolltotop').fadeOut();
+            }
+        }); 
+ 
+        $('.scrolltotop').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+ 
+    });
+    </script>
+    
+    
     <script type="text/javascript" src="http://use.typekit.com/wap0zxn.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 
     <style type="text/css">
 
@@ -36,7 +73,7 @@
 
       body {
         text-rendering: optimizeLegibility;
-        font-family: "ltc-bodoni-175", serif;
+        font-family: "futura-pt", sans-serif;
         font-size: 15px;
         line-height: 19px;
         background-repeat:repeat; 
@@ -83,7 +120,7 @@
         font-family: 'futura-pt', sans-serif;
         margin: 15px 0px 15px 0px;
         padding: 10px 12px 10px 15px;
-        width: 262px;
+        width: 432px;
         font-size: 26px;
         letter-spacing: 3px;
         text-transform: uppercase;
@@ -150,8 +187,10 @@
       
       .quotation {
         font-size: 30px;
-        line-height: 28px;
+        line-height: 34px;
+        letter-spacing: 1px;
         padding: 8px;
+        text-align: justify;
       }
       
       .mediaembed {
@@ -294,6 +333,14 @@
         background: #000;
         color: #fff;
       }
+      
+      .scrolltotop {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        opacity:0.3;
+        display:none;
+        }
                  
       .float_left {
         float: left;
@@ -309,10 +356,13 @@
   </head>
 
   <body onload="parallax()">
+
+  <a title="Scroll to Top" href="#"><img class="scrolltotop" src="http://magictransistor.com/tumblr/images/icon_scroll-top.png" width="40"></a>
+
     <div class="wrapper">
       <a href="http://magictransistor.tumblr.com/"><img class="logo" src="http://static.tumblr.com/2jzwwaz/A5pm83wbr/mt.gif" width="775"></a>
 
-      <div class="menu"><a href="http://magictransistor.com/radio" title="Magic Transistor Radio" class="mtradio">Radio</a> • <a href="/archive">Archive</a></div>
+    <div class="menu"><a href="http://magictransistor.com/radio" title="Magic Transistor Radio" class="mtradio">Radio Stream</a> • <a href="/archive">Archive</a></div>
 
     <script type="text/javascript"> 
       $('.mtradio').popupWindow({ 
@@ -324,6 +374,7 @@
         }); 
     </script>
     
+      <div class = "autopagerize_page_element" >
       <ul id="posts">
         {block:Posts}
           <div class="post_block">
@@ -497,6 +548,7 @@
           </div>
 
         {/block:Posts}
+        </div>
 
         {block:PermalinkPage}
           <div class="copyright">Magic Transistor © 2012</div>
@@ -554,5 +606,6 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+    <script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script>
   </body>
 </html>
