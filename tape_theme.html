@@ -32,21 +32,21 @@
         $(window).scroll(function(){
             if ($(this).scrollTop() > 100) {
                 $('.scrolltotop').fadeIn();
-                (function(){
-                  var iframes = document.body.getElementsByTagName('iframe'),
-                    newVideoWidth = 640,
-                    newVideoHeight = 'auto';
-                  for(x in iframes){
-                    if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
-                       iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
-                      if(newVideoHeight == 'auto'){
-                        newVideoHeight = ( newVideoWidth * 9 ) / 16;
-                      }
-                      iframes[x].width = newVideoWidth;
-                      iframes[x].height = newVideoHeight
-                    }
-                  }
-                })();
+        (function(){
+          var iframes = document.body.getElementsByTagName('iframe'),
+            newVideoWidth = 640,
+            newVideoHeight = 'auto';
+          for(x in iframes){
+            if(iframes[x].src && iframes[x].src.indexOf('player.vimeo.com') > -1 ||
+               iframes[x].src && iframes[x].src.indexOf('youtube.com') > -1){
+              if(newVideoHeight == 'auto'){
+                newVideoHeight = ( newVideoWidth * 9 ) / 16;
+              }
+              iframes[x].width = newVideoWidth;
+              iframes[x].height = newVideoHeight
+            }
+          }
+        })();
             } else {
                 $('.scrolltotop').fadeOut();
             }
@@ -103,8 +103,13 @@
       }
       
       p {
-        padding: 0px 8px 0px 8px;
+        padding: 0px 6px 0px 6px;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
       }
+      
+      p + p { margin-top: 0.5em; }
 
       .wrapper {
         margin: 0 auto;
@@ -141,16 +146,16 @@
         }
 
       .post_content {
-        text-align: left;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 8px;
+        margin: 0 auto;
+        padding: 0 6px 8px 6px;
         background: {color:Blocks};
-        width: 652px;
+        text-align: center;
+        width: 640px;
       }
       
       .video {
-        width: 652px;
+        display: block;
+        height: auto;
         margin: 0 auto;
       }
       
@@ -171,7 +176,8 @@
       }
       
       .caption {
-        padding-top:6px;
+        padding-top: 6px;
+        text-align: left;
       }
       
       .link_title {
@@ -190,13 +196,11 @@
         line-height: 34px;
         letter-spacing: 1px;
         padding: 8px;
+        word-break:hyphenate;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
         text-align: justify;
-      }
-      
-      .mediaembed {
-        margin-left: 6px;
-        padding: 0;
-        max-height: 360px;
       }
       
       .chat {
@@ -357,12 +361,12 @@
 
   <body onload="parallax()">
 
-  <a title="Scroll to Top" href="#"><img class="scrolltotop" src="http://magictransistor.com/tumblr/images/icon_scroll-top.png" width="40"></a>
+  <a title="Scroll to Top" href="#"><img class="scrolltotop" src="http://magictransistor.com.s12995.gridserver.com/tumblr/images/icon_scroll-top.png" width="40"></a>
 
     <div class="wrapper">
       <a href="http://magictransistor.tumblr.com/"><img class="logo" src="http://static.tumblr.com/2jzwwaz/A5pm83wbr/mt.gif" width="775"></a>
 
-    <div class="menu"><a href="http://magictransistor.com/radio" title="Magic Transistor Radio" class="mtradio">Radio Stream</a> • <a href="/archive">Archive</a></div>
+    <div class="menu"><a href="http://magictransistor.com.s12995.gridserver.com/radio/" title="Magic Transistor Radio" class="mtradio">Radio Stream</a> • <a href="/archive">Archive</a></div>
 
     <script type="text/javascript"> 
       $('.mtradio').popupWindow({ 
@@ -406,7 +410,7 @@
             {block:Video}
               <li class="video">
                 <div class="post_content">
-                  <div class="mediaembed">{Video-500}</div>
+                  {Video-500}
                   {block:Caption}
                     <div class="caption">{Caption}</div>
                   {/block:Caption}
@@ -428,8 +432,10 @@
             {block:Photoset}
                 <li class="photoset">
                   <div class="post_content">
-                    {Photoset-700}
-
+                    {block:Photos}
+                    <img src="{PhotoURL-HighRes}">
+                    {/block:Photos}
+                    
                     {block:Caption}
                       <div class="caption">{Caption}</div>
                     {/block:Caption}
@@ -440,7 +446,7 @@
             {block:Audio}
               <li class="post audio">
                 <div class="post_content">
-                  <div class="mediaembed">{AudioPlayerWhite}</div>
+                  {AudioPlayerWhite}
 
                     {block:Caption}
                         <div class="caption">{Caption}</div>
@@ -499,8 +505,8 @@
               <a href="{Permalink}" class="float_left">permalink</a>
               
               <div class="reblog_icon">
-                <a href="http://magictransistor.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
-                <img src="http://magictransistor.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a>
+                <a href="http://magictransistor.com.s12995.gridserver.com/tumblr/scripts/reblog.php?post_url={Permalink};"> 
+                <img src="http://magictransistor.com.s12995.gridserver.com/tumblr/images/reblog_small.png" title="Reblog on Tumblr"/></a>
               </div>
             
               {block:NoteCount} 
